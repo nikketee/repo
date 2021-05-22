@@ -6,8 +6,6 @@ const Button = (props) => (
   </button>
 )
 
-
-
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often',
@@ -17,8 +15,6 @@ const App = () => {
     'Premature optimization is the root of all evil.',
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
   ]
-
-  
    
   const [selected, setSelected] = useState(0)
   const [points, setPoint] = useState(new Array(6).fill(0))
@@ -32,51 +28,30 @@ const App = () => {
     const copy = [...points]
     copy[selected] += 1
     setPoint(copy)
-    console.log(points)
-  
-}
-  const biggest = Math.max(...points)
+    console.log(points)  
+  }
 
   const mostVotes = points.indexOf(Math.max(...points))
     
-  /* 
-  const biggest = (points) => {
-    Math.max(...points)
-    console.log(biggest)
-    return points[biggest]
-    
-    
-  }
-   */ 
-
-
   const getRandomInt = (max) => {
-    return Math.floor(Math.random() * max)
-    
-    
+    return Math.floor(Math.random() * max)  
   }
 
   return (
     <div>
       <h1>Anecdote of a day</h1>
-      {anecdotes[selected]}
+        {anecdotes[selected]}
       <br />
-      has {points[selected]} votes
+        has {points[selected]} votes
       <br />
-      <Button handleClick={() => randNext(getRandomInt(6))} text="seuraava" />
-      <Button handleClick={() => newVote()} text="vote" />
+        <Button handleClick={() => randNext(getRandomInt(6))} text="seuraava" />
+        <Button handleClick={() => newVote()} text="vote" />
       <br />
-      <h1>Anecdote with most votes</h1>
+        <h1>Anecdote with most votes</h1>
       <br />
-      {anecdotes[mostVotes]}
+        {anecdotes[mostVotes]}
       <br />
-      has {points[mostVotes]} votes
-      {points}
-      <br />
-      {biggest}
-      <br />
-      {points[biggest]}
-      {mostVotes}
+        has {points[mostVotes]} votes
     </div>
   )
 }
